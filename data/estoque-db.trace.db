@@ -1,0 +1,24 @@
+2025-11-24 12:25:09.639072-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM ITEM ID [*]1"; SQL statement:
+SELECT * FROM ITEM ID 1 [42000-224]
+2025-11-24 12:25:33.181903-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]ID"; expected "INSERT"; SQL statement:
+ID [42001-224]
+2025-11-24 12:25:59.369263-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM ITEM [*]when id = 1"; SQL statement:
+SELECT * FROM ITEM when id = 1 [42000-224]
+2025-11-24 19:02:28.308818-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITENS" not found; SQL statement:
+DELETE FROM itens [42102-224]
+2025-11-24 19:02:28.316817-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CATEGORIAS" not found; SQL statement:
+DELETE FROM categorias [42102-224]
+2025-11-24 19:29:31.418088-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]*"; expected "identifier"; SQL statement:
+DELETE * [42001-224]
+2025-11-24 19:29:42.377867-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM *"; expected "identifier"; SQL statement:
+DELETE * FROM * [42001-224]
+2025-11-24 19:29:48.040208-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM ITEM"; expected "identifier"; SQL statement:
+DELETE * FROM ITEM [42001-224]
