@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 
@@ -20,7 +19,6 @@ public class item {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
-    @JsonBackReference
     private categoria categoria;
 
     public item() {
@@ -36,7 +34,6 @@ public class item {
         this.categoria = categoria;
     }
 
-    
     public Long getId() {
         return id;
     }

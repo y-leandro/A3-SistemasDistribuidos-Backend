@@ -3,7 +3,9 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 @Entity
 public class categoria {
@@ -17,7 +19,7 @@ public class categoria {
     private String embalagem;
 
     @OneToMany(mappedBy = "categoria")
-    @JsonManagedReference
+    @JsonIgnore
     private List<item> itens;
 
     public categoria() {
@@ -29,7 +31,6 @@ public class categoria {
         this.embalagem = embalagem;
     }
 
-    
     public Long getId() {
         return id;
     }
