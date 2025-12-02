@@ -3,7 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import com.example.demo.model.categoria;
+import com.example.demo.model.Categoria;
 import com.example.demo.repository.CategoriaRepository;
 
 @Service
@@ -15,11 +15,11 @@ public class ServicoCategoria {
         this.repo = repo;
     }
 
-    public List<categoria> listar() {
+    public List<Categoria> listar() {
         return repo.findAll();
     }
 
-    public categoria salvar(categoria c) {
+    public Categoria salvar(Categoria c) {
         return repo.save(c);
     }
 
@@ -27,8 +27,8 @@ public class ServicoCategoria {
         repo.deleteById(id);
     }
 
-    public categoria atualizar(Long id, categoria c) {
-        categoria atual = repo.findById(id)
+    public Categoria atualizar(Long id, Categoria c) {
+        Categoria atual = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
 
         atual.setNome(c.getNome());

@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.item;
-import com.example.demo.model.movimentacao;
+import com.example.demo.model.Item;
+import com.example.demo.model.Movimentacao;
 import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.MovimentacaoRepository;
 
@@ -21,15 +21,15 @@ public class ServicoMovimentacao {
         this.itemRepo = itemRepo;
     }
 
-    public List<movimentacao> listar() {
+    public List<Movimentacao> listar() {
         return movRepo.findAll();
     }
 
-    public movimentacao registrar(Long itemId, Integer quantidade, String tipo) {
-        item prod = itemRepo.findById(itemId)
+    public Movimentacao registrar(Long itemId, Integer quantidade, String tipo) {
+        Item prod = itemRepo.findById(itemId)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
 
-        movimentacao mov = new movimentacao();
+        Movimentacao mov = new Movimentacao();
         mov.setProduto(prod);
         mov.setQuantidade(quantidade);
         mov.setTipo(tipo);
@@ -38,11 +38,11 @@ public class ServicoMovimentacao {
         return movRepo.save(mov);
     }
 
-    public movimentacao maisEntrada() {
+    public Movimentacao maisEntrada() {
         return movRepo.findTopByTipoOrderByQuantidadeDesc("Entrada");
     }
 
-    public movimentacao maisSaida() {
+    public Movimentacao maisSaida() {
         return movRepo.findTopByTipoOrderByQuantidadeDesc("Saída");
     }
 }

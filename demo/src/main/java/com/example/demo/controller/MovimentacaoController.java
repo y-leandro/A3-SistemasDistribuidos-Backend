@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
-import com.example.demo.model.movimentacao;
+import com.example.demo.model.Movimentacao;
 import com.example.demo.service.ServicoMovimentacao;
 
 @RestController
@@ -18,13 +18,13 @@ public class MovimentacaoController {
     }
 
     @GetMapping
-    public List<movimentacao> listar() {
+    public List<Movimentacao> listar() {
         return service.listar();
     }
 
     
     @PostMapping
-    public movimentacao registrar(@RequestBody movimentacao mov) {
+    public Movimentacao registrar(@RequestBody Movimentacao mov) {
         return service.registrar(
             mov.getProduto().getId(),
             mov.getQuantidade(),
@@ -33,12 +33,12 @@ public class MovimentacaoController {
     }
 
     @GetMapping("/mais-entrada")
-    public movimentacao maisEntrada() {
+    public Movimentacao maisEntrada() {
         return service.maisEntrada();
     }
 
     @GetMapping("/mais-saida")
-    public movimentacao maisSaida() {
+    public Movimentacao maisSaida() {
         return service.maisSaida();
     }
 }

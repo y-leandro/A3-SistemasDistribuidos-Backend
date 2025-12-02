@@ -3,29 +3,29 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import com.example.demo.model.item;
-import com.example.demo.model.categoria;
+import com.example.demo.model.Item;
+import com.example.demo.model.Categoria;
 import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.CategoriaRepository;
 
 @Service
-public class servicoItem {
+public class ServicoItem {
 
     private final ItemRepository repo;
     private final CategoriaRepository categoriaRepo;
 
-    public servicoItem(ItemRepository repo, CategoriaRepository categoriaRepo) {
+    public ServicoItem(ItemRepository repo, CategoriaRepository categoriaRepo) {
         this.repo = repo;
         this.categoriaRepo = categoriaRepo;
     }
 
-    public List<item> listar() {
+    public List<Item> listar() {
         return repo.findAll();
     }
 
-    public item salvar(item i) {
+    public Item salvar(Item i) {
         if (i.getcategoria() != null) {
-            categoria cat = categoriaRepo.findById(i.getcategoria().getId())
+            Categoria cat = categoriaRepo.findById(i.getcategoria().getId())
                     .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
             i.setcategoria(cat);
         }
@@ -36,8 +36,8 @@ public class servicoItem {
         repo.deleteById(id);
     }
 
-    public item atualizar(Long id, item i) {
-        item atual = repo.findById(id)
+    public Item atualizar(Long id, Item i) {
+        Item atual = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("item não encontrado"));
 
         atual.setNome(i.getNome());
@@ -47,7 +47,7 @@ public class servicoItem {
         atual.setQuantidadeMax(i.getQuantidadeMax());
 
         if (i.getcategoria() != null) {
-            categoria cat = categoriaRepo.findById(i.getcategoria().getId())
+            Categoria cat = categoriaRepo.findById(i.getcategoria().getId())
                     .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
             atual.setcategoria(cat);
         }
@@ -55,8 +55,8 @@ public class servicoItem {
         return repo.save(atual);
     }
 
-    public item atualizarQuantidade(Long id, Integer novaQtde) {
-        item atual = repo.findById(id)
+    public Item atualizarQuantidade(Long id, Integer novaQtde) {
+        Item atual = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("item não encontrado"));
         atual.setQuantidade(novaQtde);
         return repo.save(atual);

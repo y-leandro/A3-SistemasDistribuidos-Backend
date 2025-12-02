@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 
-public class item {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +19,13 @@ public class item {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
-    private categoria categoria;
+    private Categoria categoria;
 
-    public item() {
+    public Item() {
     }
 
-    public item(String nome, Double preco, Integer quantidade, Integer quantidadeMin, Integer quantidadeMax,
-            categoria categoria) {
+    public Item(String nome, Double preco, Integer quantidade, Integer quantidadeMin, Integer quantidadeMax,
+            Categoria categoria) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -82,11 +82,11 @@ public class item {
         this.quantidadeMax = quantidadeMax;
     }
 
-    public categoria getcategoria() {
+    public Categoria getcategoria() {
         return categoria;
     }
 
-    public void setcategoria(categoria categoria) {
+    public void setcategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 }

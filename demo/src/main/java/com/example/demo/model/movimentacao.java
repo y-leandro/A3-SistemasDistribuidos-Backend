@@ -4,22 +4,22 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class movimentacao {
+public class Movimentacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    private item produto;
+    private Item produto;
 
     private LocalDate data;
     private Integer quantidade;
     private String tipo; 
 
-    public movimentacao() {}
+    public Movimentacao() {}
 
-    public movimentacao(item produto, LocalDate data, Integer quantidade, String tipo) {
+    public Movimentacao(Item produto, LocalDate data, Integer quantidade, String tipo) {
         this.produto = produto;
         this.data = data;
         this.quantidade = quantidade;
@@ -33,10 +33,10 @@ public class movimentacao {
         this.id = id;
     }
 
-    public item getProduto() {
+    public Item getProduto() {
         return produto;
     }
-    public void setProduto(item produto) {
+    public void setProduto(Item produto) {
         this.produto = produto;
     }
 

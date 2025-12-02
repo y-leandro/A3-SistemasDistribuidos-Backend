@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-public class categoria {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +20,12 @@ public class categoria {
 
     @OneToMany(mappedBy = "categoria")
     @JsonIgnore
-    private List<item> itens;
+    private List<Item> itens;
 
-    public categoria() {
+    public Categoria() {
     }
 
-    public categoria(String nome, String tamanho, String embalagem) {
+    public Categoria(String nome, String tamanho, String embalagem) {
         this.nome = nome;
         this.tamanho = tamanho;
         this.embalagem = embalagem;
@@ -63,11 +63,11 @@ public class categoria {
         this.embalagem = embalagem;
     }
 
-    public List<item> getItens() {
+    public List<Item> getItens() {
         return itens;
     }
 
-    public void setItens(List<item> itens) {
+    public void setItens(List<Item> itens) {
         this.itens = itens;
     }
 }

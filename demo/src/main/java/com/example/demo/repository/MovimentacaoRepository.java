@@ -1,12 +1,12 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.movimentacao;
+import com.example.demo.model.Movimentacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface MovimentacaoRepository extends JpaRepository<movimentacao, Long> {
+public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Long> {
    
-    List<movimentacao> findByTipo(String tipo);   
-    List<movimentacao> findByProdutoId(Long produtoId);
-    movimentacao findTopByTipoOrderByQuantidadeDesc(String tipo);
+    List<Movimentacao> findByTipo(String tipo);   
+    List<Movimentacao> findByProdutoId(Long produtoId);
+    Movimentacao findTopByTipoOrderByQuantidadeDesc(String tipo);
 }
